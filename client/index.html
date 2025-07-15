@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>프로세스 랭킹</title>
+  </head>
+  <body>
+    <h1>프로세스 랭킹 Electron</h1>
+    <div id="root"></div>
+    <script>
+      function fetchAndRenew() {
+        fetch("http://localhost:8000/api/top-apps")
+          .then((r) => r.json())
+          .then((data) => {
+            document.getElementById("root").innerText = JSON.stringify(
+              data,
+              null,
+              2
+            );
+          })
+          .catch((e) => {
+            document.getElementById("root").innerText = "API 요청 실패: " + e;
+          });
+      }
+
+      // 최초 실행
+      fetchAndRenew();
+      // 5초마다 갱신
+      setInterval(fetchAndRenew, 5000);
+    </script>
+  </body>
+</html>
