@@ -17,3 +17,8 @@ BLACKLIST_NAMES = {
 
 이슈 2
 - UI를 무엇으로 띄울 것인가(tkinter, PyQT, Electron 등...)
+- 확장성을 고려해 Electron으로 결정
+
+다음에 구현할 것들
+- 매일매일 초기화 및 로그 남기는 로직 추가
+- UI 추가
